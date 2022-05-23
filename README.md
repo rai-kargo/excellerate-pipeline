@@ -45,4 +45,4 @@ Your tasks are to create 2 pipelines that fulfill the following requirements. St
 3. Commit the changes
 4. Open a Pull Request from the new branch `pr-test` to `master`
 
-test change readme
+test change readme in branch pr-test
