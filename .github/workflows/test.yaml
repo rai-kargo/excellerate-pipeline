@@ -1,28 +1,18 @@
-# slightly modified GitHub Go starter workflow
-# added caching and removed build
+---
 name: test
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
+on: 
+  pull_request
 
 jobs:
-
-  test:
+  deploy:
     runs-on: ubuntu-latest
+    name: Build Application
     steps:
-
-    - name: Set up Go 1.15.6
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.15.6
-
-    - name: Check out code into the Go module directory
-      uses: actions/checkout@v2
-    - name: Test
-      run: go test . -t my-web-app -f go/main_test.go
-      env:
-         CI: true
-    - name: docker build
-      run: docker build . -t my-web-app -f go/Dockerfile
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: running the test
+        run: |
+          cd node
+          npm install
+          npm test
