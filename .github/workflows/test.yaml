@@ -25,4 +25,4 @@ jobs:
       env:
          CI: true
     - name: docker build
-      run: docker build -t temp/build .
+      run: docker build . -t my-web-app -f go/Dockerfile
